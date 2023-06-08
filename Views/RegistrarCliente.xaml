@@ -28,7 +28,7 @@
         <TextBox Margin="5" Text="{Binding cliente.Contrasena}"></TextBox>
 
         <Label FontWeight="Bold" FontFamily="Cambria">IdRol:</Label>
-        <TextBox Margin="5" Text="{Binding cliente.IdRol}"></TextBox>  
+        <TextBox Margin="5" Text="{Binding cliente.IdRol}"></TextBox> 
 
         <TextBlock Margin="10"
                    Text="{Binding Error}"

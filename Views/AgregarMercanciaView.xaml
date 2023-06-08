@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="ProyectoFinalMall.Views.AgregarMercanciaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProyectoFinalMall.Views"
+             xmlns:vm="clr-namespace:ProyectoFinalMall.ViewModels"
+             d:DataContext="{d:DesignInstance Type=vm:MercanciaViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="580" d:DesignWidth="800"  Background="Gray" Margin="10">
+
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" x:Key="nombre">
+            <Setter Property="FontFamily" Value="../Assets/#QuickSand Light"></Setter>
+            <Setter Property="FontSize" Value="30"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Background" Value="#DC895D"></Setter>
+            <Setter Property="Padding" Value="10"></Setter>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        </Style>
+        <Style TargetType="DockPanel">
+            <Setter Property="Margin" Value="10,20,10, 0"></Setter>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#DC895D" />
+            <Setter Property="Padding" Value="30,5"></Setter>
+            <Setter Property="Margin" Value="0,10,10,0"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+    </UserControl.Resources>
+
+
+    <StackPanel>
+        <TextBlock Style="{StaticResource nombre}">Datos De La Mercancia:</TextBlock>
+
+        <DockPanel>
+            <Label>Nombre:</Label>
+            <TextBox Text="{Binding mercancia.Nombre}"></TextBox>
+        </DockPanel>
+
+        <DockPanel>
+            <Label>Tipo:</Label>
+            <TextBox Text="{Binding mercancia.Tipo}"></TextBox>
+        </DockPanel>
+
+        <DockPanel>
+            <Label>Nacionalidad:</Label>
+            <TextBox Text="{Binding mercancia.Nacionalidad}"></TextBox>
+        </DockPanel>
+
+
+        <DockPanel>
+            <Label>Marca:</Label>
+            <TextBox  Text="{Binding mercancia.Marca}"></TextBox>
+        </DockPanel>
+
+        <DockPanel>
+            <Label>Precio:</Label>
+            <TextBox  Text="{Binding mercancia.Precio}"></TextBox>
+        </DockPanel>
+
+        <DockPanel>
+            <Label DockPanel.Dock="Top">Descripcion:</Label>
+            <TextBox Background="White" Text="{Binding mercancia.Descripcion}" AcceptsReturn="True" Height="120"></TextBox>
+        </DockPanel>
+
+        <TextBlock TextAlignment="Center" Margin="10"
+            Foreground="Red" Text="{Binding Error}"></TextBlock>
+ 
+        <WrapPanel HorizontalAlignment="Right" Margin="-5">
+            <Button Command="{Binding GuardarMercanciaCommand}">Guardar</Button>
+            <Button Command="{Binding CancelarCommand}">Cancelar</Button>
+        </WrapPanel>
+
+    </StackPanel>
+
+
+
+
+</UserControl>

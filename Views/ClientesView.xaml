@@ -6,297 +6,19 @@
              xmlns:local="clr-namespace:ProyectoFinalMall.Views"
              xmlns:vm="clr-namespace:ProyectoFinalMall.ViewModels"
              mc:Ignorable="d" 
-             Name="ventana"  
              d:DesignHeight="565" d:DesignWidth="1050" Background="Transparent">
 
     <UserControl.DataContext>
         <vm:ClienteViewModel></vm:ClienteViewModel>
     </UserControl.DataContext>
 
-    <UserControl.Resources>
+    
 
-        <DockPanel x:Key="Editar">
-            <Border Padding="10" DockPanel.Dock="Top" BorderThickness="0,0,0,2" BorderBrush="Black" >
-                <TextBlock FontSize="20">Modificar cliente</TextBlock>
-            </Border>
-  
-            <StackPanel Margin="20">
-                <Label>Nombre:</Label>
-                <TextBox Text="{Binding cliente.Nombre}"></TextBox>
 
-                <Label>Correo electrónico:</Label>
-                <TextBox Text="{Binding cliente.Correo}"></TextBox>
+        <UserControl.Resources>
 
-                <Label>IdRol:</Label>
-                <TextBox Text="{Binding cliente.IdRol}"></TextBox>
-
-                <WrapPanel HorizontalAlignment="Center" Margin="20">
-                    <Button Padding="10,5" Command="{Binding GuardarClienteCommand}">Editar</Button>
-                    <Button Padding="10,5" Command="{Binding CancelarCommand}" Margin="10,0,0,0">Cancelar</Button>
-                </WrapPanel>
-            </StackPanel>
-
-        </DockPanel>
-
-
-        <DockPanel x:Key="Datos"> 
-            <Border Padding="10" DockPanel.Dock="Top" BorderThickness="0,0,0,2" BorderBrush="Black" >
-                <TextBlock FontSize="20">Datos cliente</TextBlock>
-            </Border>
-
-            <StackPanel Margin="20">
-                <Label>Nombre:</Label>
-                <TextBox Text="{Binding cliente.Nombre}"></TextBox>
-
-                <Label>Correo electrónico:</Label>
-                <TextBox Text="{Binding cliente.Correo}"></TextBox>
-
-                <Label>IdRol:</Label>
-                <TextBox Text="{Binding cliente.IdRol}"></TextBox>
-
-                <WrapPanel HorizontalAlignment="Center" Margin="20">
-                    
-                    <Button Padding="10,5" Command="{Binding CancelarCommand}" Margin="10,0,0,0">Cancelar</Button>
-                </WrapPanel>
-            </StackPanel>
-
-        </DockPanel>
-
-
-        <DockPanel x:Key="Eliminar">
-            <Border Padding="10" DockPanel.Dock="Top" BorderThickness="0,0,0,2" BorderBrush="Black" >
-                <TextBlock FontSize="20">Eliminar cliente</TextBlock>
-            </Border>
-
-            <StackPanel Margin="20">
-                <Label>Nombre:</Label>
-                <TextBox Text="{Binding cliente.Nombre}"></TextBox>
-
-                <WrapPanel HorizontalAlignment="Center" Margin="20">
-                    <Button Padding="10,5" Command="{Binding AceptarClienteCommand}">Eliminar</Button>
-                    <Button Padding="10,5" Command="{Binding CancelarCommand}" Margin="10,0,0,0">Cancelar</Button>
-                </WrapPanel>
-            </StackPanel>
-        </DockPanel>
-
-        
-        <Grid x:Key="Ver"> 
-
-
-            <Border CornerRadius="20" 
-                BorderThickness="4"
-                BorderBrush="#2594DE"
-                Opacity="0.95"
-                >
-
-                <Border.Background>
-
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1"  >
-
-                        <GradientStop Color="PaleVioletRed" Offset="1.0" />
-                        <GradientStop Color="LightPink" Offset="0.5" />
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
-
-
-
-
-            <Grid Name="GridUsuarios">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="20" />
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="20" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition Height="20" />
-
-
-                </Grid.RowDefinitions>
-
-                <TextBlock Height="50"  
-                       Grid.Row="0" 
-                       Grid.ColumnSpan="6" 
-                       Text="LISTA DE CLIENTES"     
-                       Foreground="Black"  
-                       FontWeight="Black"
-                       FontStyle="Oblique"
-                       FontSize="30" 
-                       HorizontalAlignment="Center" 
-                       VerticalAlignment="Center"    
-                       />
-
-                <TextBlock Text="Buscar Cliente:" 
-                       HorizontalAlignment="Right" 
-                       VerticalAlignment="Center"
-                       Grid.Column="1"
-                       Grid.Row="2"
-                       FontSize="15"
-                       Margin="0,0,10,0"
-                       Foreground="Black"
-                       />
-
-                <TextBox Style="{DynamicResource TextBoxStyle1}" 
-                     Background="Transparent"
-                     BorderBrush="LightCyan"
-                     Grid.Column="2"
-                     Grid.Row="2"
-                     FontSize="20" 
-                     />
-
-
-                <Button Style="{DynamicResource ButtonStyle}" Content="Buscar" 
-                    Grid.Column="3"
-                    Grid.Row="2"
-                    HorizontalAlignment="Left"  
-                    Margin="10,0,0,0"
-                    VerticalAlignment="Top"
-                    Width="120"
-                    Background="HotPink"
-                    BorderBrush="SlateGray"
-                    Foreground="White"
-                    FontFamily="Arial"
-                    FontSize="20"
-                    FontStyle="Italic"
-                    >
-
-
-
-                </Button>
-                <Button Style="{DynamicResource ButtonStyle1}" Background="MediumSlateBlue"
-                    BorderBrush="LightSlateGray" 
-                    Grid.Column="4"
-                    Grid.Row="2"
-                    Cursor="Hand"
-                    Width="150"
-                    Command="{Binding AgregarClienteCommand}"
-                    >
-                    <TextBlock Text="Agregar Cliente"
-                            Foreground="White"
-                            FontSize="15"
-                            
-                    />
-                </Button>
-
-                <DataGrid  Style="{DynamicResource DataGridStyle1}" Grid.Row="4"
-                      Grid.Column="1"
-                      Grid.RowSpan="2"
-                      Grid.ColumnSpan="4"
-                      AutoGenerateColumns="False"
-                      Background="GhostWhite"
-                      Foreground="Black" 
-                      FontSize="15"
-                      CanUserAddRows="False"
-                      CanUserResizeColumns="True"
-                      CanUserResizeRows="False"
-                      CanUserSortColumns="False"
-                      RowBackground="Transparent"
-                      HeadersVisibility="Column"
-                      GridLinesVisibility="Horizontal"
-                      HorizontalGridLinesBrush="#c48b9f"
-                      FontWeight="SemiBold"
-                      ItemsSource="{Binding ListaClientes}"
-                      >
-
-
-
-                    <DataGrid.Columns >
-                        <DataGridTemplateColumn Header="Opciones del cliente " 
-                                            Width="300"
-                                            >
-                            <DataGridTemplateColumn.CellTemplate >
-                                <DataTemplate >
-                                    <DockPanel >
-                                        <TextBlock FontSize="20"  
-                                     
-                                    Foreground="Black" ><Hyperlink 
-                                    Foreground="Black" Command="{Binding ElementName=ventana,Path=DataContext.EditarClienteCommand}" CommandParameter="{Binding .}">Modificar</Hyperlink></TextBlock>
-                                        <TextBlock FontSize="20" ><Hyperlink  
-                                    Foreground="Black" Command="{Binding ElementName=ventana, Path=DataContext.EliminarClienteCommand}" CommandParameter="{Binding .}">Eliminar</Hyperlink></TextBlock>
-                                        <TextBlock FontSize="20" ><Hyperlink 
-                                    Foreground="Black" Command="{Binding ElementName=ventana, Path=DataContext.VerDatosCommand}" CommandParameter="{Binding Id}">Detalles</Hyperlink></TextBlock>
-
-
-
-
-
-
-
-
-                                    </DockPanel>
-
-
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-
-
-
-                        </DataGridTemplateColumn >
-                        <DataGridTextColumn Header="Nombre" Width="230"  Binding="{Binding Nombre}"  />
-                        <DataGridTextColumn Header="Correo" Width="230" Binding="{Binding Correo}"/>
-                        <DataGridTextColumn Header="Rol" Width="230" Binding="{Binding IdRol}"/>
-
-
-
-                    </DataGrid.Columns>
-
-
-
-                </DataGrid>
-
-            </Grid>
-
-
-        </Grid>
-
-
-        <StackPanel x:Key="Agregar" Margin="30,30,30,9" Background="LavenderBlush">
-            <Label Height="65"
-         Foreground="Black"
-         Background="Lavender"
-         BorderBrush="LavenderBlush"
-         FontWeight="Bold"
-         FontSize="36"
-         HorizontalContentAlignment="Center"
-         VerticalContentAlignment="Center"
-        BorderThickness="0,0,0,10" FontFamily="Cambria">Registrar Cliente
-
-            </Label>
-            <Label FontWeight="Bold" FontFamily="Cambria">Nombre:</Label>
-            <TextBox Margin="5" Text="{Binding cliente.Nombre}"></TextBox>
-
-            <Label FontWeight="Bold" FontFamily="Cambria">Correo electrónico:</Label>
-            <TextBox Margin="5" Text="{Binding cliente.Correo}"></TextBox>
-
-            <Label FontWeight="Bold" FontFamily="Cambria">Contraseña:</Label>
-            <TextBox Margin="5" Text="{Binding cliente.Contrasena}"></TextBox>
-
-            <Label FontWeight="Bold" FontFamily="Cambria">IdRol:</Label>
-            <TextBox Margin="5" Text="{Binding cliente.IdRol}"></TextBox>
-
-            <TextBlock Margin="10"
-                   Text="{Binding Error}"
-                   Foreground="Red" 
-                   HorizontalAlignment="Center">
-            </TextBlock>
-            <WrapPanel HorizontalAlignment="Center" Margin="20">
-                <Button  Padding="10,5" Command="{Binding GuardarClienteCommand}" Background="Lavender" FontFamily="Arial Narrow" FontSize="20" Cursor="Hand" Foreground="Black" >Registrarse</Button>
-                <Button Padding="10,5" Command="{Binding CancelarCommand}" Margin="10,0,0,0" Background="Lavender" FontSize="20" FontFamily="Arial Narrow" Foreground="Black" FontWeight="Bold" FontStyle="Italic" Cursor="Hand">Cancelar</Button>
-            </WrapPanel>
-        </StackPanel>
-
-
-        <Style x:Key="FocusVisual">
+        <local:RegistrarCliente x:Key="Agregar"></local:RegistrarCliente>
+            <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
                     <ControlTemplate>
@@ -547,28 +269,183 @@
 
 
     </UserControl.Resources>
-    <ContentControl >
+ 
+    <Grid>
 
-        <ContentControl.Style>
-            <Style TargetType="ContentControl">
-                <Setter Property="Content" Value="{StaticResource Ver}"></Setter>
-                <Style.Triggers>
-                    <DataTrigger Binding="{Binding Modo}" Value="Agregar">
-                        <Setter Property="Content" Value="{StaticResource Agregar}"></Setter>
-                    </DataTrigger> 
-                    <DataTrigger Binding="{Binding Modo}" Value="Editar">
-                        <Setter Property="Content" Value="{StaticResource Editar}"></Setter>
-                    </DataTrigger>
-                    <DataTrigger Binding="{Binding Modo}" Value="Eliminar">
-                        <Setter Property="Content" Value="{StaticResource Eliminar}"></Setter>
-                    </DataTrigger>
-                    <DataTrigger Binding="{Binding Modo}" Value="VerDatos">
-                        <Setter Property="Content" Value="{StaticResource Datos}"></Setter>
-                    </DataTrigger> 
-                </Style.Triggers>
-            </Style>
-        </ContentControl.Style>
-    </ContentControl>
+        <Border CornerRadius="20" 
+                BorderThickness="4"
+                BorderBrush="#2594DE"
+                Opacity="0.95"
+                >
+            <Border.Background>
 
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1"  >
+
+                    <GradientStop Color="PaleVioletRed" Offset="1.0" />
+                    <GradientStop Color="LightPink" Offset="0.5" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <Grid Name="GridUsuarios">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="20" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="20" />
+
+
+            </Grid.RowDefinitions>
+
+            <TextBlock Height="50"  
+                       Grid.Row="0" 
+                       Grid.ColumnSpan="6" 
+                       Text="LISTA DE CLIENTES"     
+                       Foreground="Black"  
+                       FontWeight="Black"
+                       FontStyle="Oblique"
+                       FontSize="30" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"    
+                       />
+
+            <TextBlock Text="Buscar Cliente:" 
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Center"
+                       Grid.Column="1"
+                       Grid.Row="2"
+                       FontSize="15"
+                       Margin="0,0,10,0"
+                       Foreground="Black"
+                       />
+
+            <TextBox Style="{DynamicResource TextBoxStyle1}" 
+                     Background="Transparent"
+                     BorderBrush="LightCyan"
+                     Grid.Column="2"
+                     Grid.Row="2"
+                     FontSize="20" 
+                     />
+
+
+            <Button Style="{DynamicResource ButtonStyle}" Content="Buscar" 
+                    Grid.Column="3"
+                    Grid.Row="2"
+                    HorizontalAlignment="Left"  
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Top"
+                    Width="120"
+                    Background="HotPink"
+                    BorderBrush="SlateGray"
+                    Foreground="White"
+                    FontFamily="Arial"
+                    FontSize="20"
+                    FontStyle="Italic"
+                    >
+
+
+
+            </Button>
+            <Button Style="{DynamicResource ButtonStyle1}" Background="MediumSlateBlue"
+                    BorderBrush="LightSlateGray" 
+                    Grid.Column="4"
+                    Grid.Row="2"
+                    Cursor="Hand"
+                    Width="150"
+                    Command="{Binding AgregarClienteCommand}"
+                    >
+                <TextBlock Text="Agregar Cliente"
+                            Foreground="White"
+                            FontSize="15"
+                    />
+            </Button>
+ 
+            <DataGrid  Style="{DynamicResource DataGridStyle1}" Grid.Row="4"
+                      Grid.Column="1"
+                      Grid.RowSpan="2"
+                      Grid.ColumnSpan="4"
+                      AutoGenerateColumns="False"
+                      Background="GhostWhite"
+                      Foreground="Black" 
+                      FontSize="15"
+                      CanUserAddRows="False"
+                      CanUserResizeColumns="True"
+                      CanUserResizeRows="False"
+                      CanUserSortColumns="False"
+                      RowBackground="Transparent"
+                      HeadersVisibility="Column"
+                      GridLinesVisibility="Horizontal"
+                      HorizontalGridLinesBrush="#c48b9f"
+                      FontWeight="SemiBold"
+                      ItemsSource="{Binding ListaClientes}"
+                      >
+
+
+
+                <DataGrid.Columns >
+                    <DataGridTemplateColumn Header="Opciones del cliente " 
+                                            Width="300"
+                                            >
+                        <DataGridTemplateColumn.CellTemplate >
+                            <DataTemplate >
+                                <DockPanel >
+                                    <TextBlock FontSize="20"><Hyperlink 
+                                    Foreground="Black">Modificar</Hyperlink></TextBlock>
+                                    <TextBlock FontSize="20" ><Hyperlink 
+                                    Foreground="Black">Eliminar</Hyperlink></TextBlock>
+                                    <TextBlock FontSize="20" ><Hyperlink 
+                                    Foreground="Black">Detalles</Hyperlink></TextBlock>
+
+
+
+
+
+
+
+
+                                </DockPanel>
+
+
+                            </DataTemplate>
+
+
+                        </DataGridTemplateColumn.CellTemplate>
+
+
+
+
+                    </DataGridTemplateColumn >
+                    <DataGridTextColumn Header="Nombre" Width="230"  Binding="{Binding Nombre}"  />
+                    <DataGridTextColumn Header="Correo" Width="230" Binding="{Binding Correo}"/>
+                    <DataGridTextColumn Header="Rol" Width="230" Binding="{Binding IdRol}"/>
+
+
+
+                </DataGrid.Columns>
+
+
+
+            </DataGrid>
+
+
+
+
+        </Grid>
+
+       
+    </Grid>
+    
 
 </UserControl>

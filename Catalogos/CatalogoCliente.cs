@@ -10,7 +10,7 @@ using ProyectoFinalMall.Views;
 using System.Threading;
 using System.Security.Principal;
 using System.Text.RegularExpressions;
-  
+
 namespace ProyectoFinalMall.Catalogos
 {
     public class CatalogoCliente 
@@ -40,7 +40,7 @@ namespace ProyectoFinalMall.Catalogos
 
             var y = ((IEnumerable<int>)context.Database.SqlQueryRaw<int>(cadena, correo, password).
                 AsAsyncEnumerable<int>()).First();
-             
+
             if (y == 1)
             {
                 var us = context.Cliente.Include(x => x.IdRolNavigation).FirstOrDefault(x => x.Correo == correo);
@@ -81,7 +81,7 @@ namespace ProyectoFinalMall.Catalogos
                 if (string.IsNullOrWhiteSpace(u.Contrasena))
                 {
                     Errores.Add("Escriba la contraseña.");
-                }     
+                } 
                 if (context.Cliente.Any(x => x.Correo == u.Correo && x.Id != u.Id))
                 {
                     Errores.Add("El correo electrónico ya se encuentra registrado.");

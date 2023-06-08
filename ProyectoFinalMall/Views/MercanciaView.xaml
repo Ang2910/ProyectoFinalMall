@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="ProyectoFinalMall.Views.MercanciaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProyectoFinalMall.Views"
+             xmlns:models="clr-namespace:ProyectoFinalMall.Models"
+             xmlns:vm="clr-namespace:ProyectoFinalMall.ViewModels"
+             d:DataContext="{d:DesignInstance Type=vm:MercanciaViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="White" >
+
+
+    <UserControl.DataContext>
+        <vm:MercanciaViewModel x:Name="pvm"></vm:MercanciaViewModel>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <DataTemplate  DataType="{x:Type models:Mercancia}">
+            <local:MercanciaControlView ></local:MercanciaControlView>
+
+           
+
+
+
+        </DataTemplate> 
+    </UserControl.Resources>
+
+    <DockPanel>
+        <DockPanel Margin="20" >
+            <Button Command="{Binding AgregarMercanciaCommand}"  Margin="0,5,0,0" FontWeight="Bold" Background="#DC895D" DockPanel.Dock="Bottom" Height="40" Cursor="Hand">
+                NUEVA MERCANCIA
+
+            </Button>
+            <ListBox x:Name="lst1" SelectedItem="{Binding mercancia}" SelectedIndex="0" ItemsSource="{Binding ListaMercancia}" Margin="0,5,0,0" DockPanel.Dock="Left" Background="White">
+                <ListBox.ContextMenu> 
+                    <ContextMenu> 
+                        <MenuItem Command="{Binding  AgregarMercanciaCommand}" Header="Editar"></MenuItem>
+                        <MenuItem Click="MenuItem_Click"
+                                  Header="Eliminar"></MenuItem>
+     
+
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+
+            </ListBox>
+        </DockPanel> 
+        <ContentControl Margin="0,20,20,20">
+            <ContentControl.Resources>
+                <local:AgregarMercanciaView x:Key="registrar"></local:AgregarMercanciaView>
+                <local:DatosMercanciaView x:Key="detalles"></local:DatosMercanciaView>
+                <local:EditarMercanciaView x:Key="modificar"></local:EditarMercanciaView>
+            </ContentControl.Resources>
+            <ContentControl.Style>
+                <Style TargetType="ContentControl">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Vista}" Value="Ver"> 
+                            <Setter Property="Content" Value="{StaticResource detalles}"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Vista}" Value="Agregar">
+                            <Setter Property="Content" Value="{StaticResource registrar}"></Setter>
+                        </DataTrigger> 
+                        <DataTrigger Binding="{Binding Vista}" Value="Editar">
+                            <Setter Property="Content" Value="{StaticResource registrar}"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+    </DockPanel>
+
+
+
+</UserControl>

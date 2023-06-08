@@ -37,7 +37,6 @@ namespace ProyectoFinalMall.ViewModels
         public ICommand GuardarClienteCommand { get; set; }
         public ICommand CancelarCommand { get; set; } 
         public ICommand RegresarCommand { get; set; } 
-        public ICommand VerDatosCommand { get; set; } 
 
         public ClienteViewModel()
         {
@@ -49,16 +48,8 @@ namespace ProyectoFinalMall.ViewModels
             GuardarClienteCommand = new RelayCommand(GuardarCliente);
             CancelarCommand = new RelayCommand(CancelarCliente);
             RegresarCommand = new RelayCommand(Regresar);
-            VerDatosCommand = new RelayCommand<int>(VerDatos);
             Modo = "Ver"; 
             ActualizarBaseDatos();
-            Actualizar();
-        }
-
-        private void VerDatos(int id)
-        {
-            cliente = catalago.GetIdUsuario(id);
-            Modo = "VerDatos";
             Actualizar();
         }
 
@@ -77,9 +68,9 @@ namespace ProyectoFinalMall.ViewModels
                 Actualizar();
             }
         }
-        Random r = new Random(); 
+        Random r = new Random();
         private void GuardarCliente()
-        {  
+        {
             if (cliente != null)
             {
                 Error = "";
@@ -93,14 +84,16 @@ namespace ProyectoFinalMall.ViewModels
                         catalago.Update(cliente);
                     }
                     else
-                    { 
-                        //cliente.IdRol = r.Next(1, 2);
+                    {
+
+                        cliente.IdRol = r.Next(1, 2);
                         catalago.Create(cliente);
                     }
         
                     ActualizarBaseDatos();
                     Modo = "Ver";
-                    Actualizar(); 
+                    Actualizar();
+
                 }
                 else
                 {

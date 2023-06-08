@@ -135,7 +135,7 @@ namespace ProyectoFinalMall.ViewModels
         [Authorize(Roles = "Cliente")]  
         private void AccionesUsuarioCliente() 
         {
-            Vista = new MercanciaView();  
+            Vista = new MercanciaView(); 
         }
         void Actualizar(string? prop = null)
         {

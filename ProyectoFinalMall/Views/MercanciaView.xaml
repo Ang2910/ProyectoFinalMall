@@ -17,17 +17,12 @@
     <UserControl.Resources>
         <DataTemplate  DataType="{x:Type models:Mercancia}">
             <local:MercanciaControlView ></local:MercanciaControlView>
-
-           
-
-
-
         </DataTemplate> 
     </UserControl.Resources>
 
     <DockPanel>
         <DockPanel Margin="20" >
-            <Button Command="{Binding AgregarMercanciaCommand}"  Margin="0,5,0,0" FontWeight="Bold" Background="#DC895D" DockPanel.Dock="Bottom" Height="40" Cursor="Hand">
+            <Button Command="{Binding AgregarMercanciaCommand}"  Margin="0,5,0,0" FontWeight="Bold" Background="MediumPurple" DockPanel.Dock="Bottom" Height="40" Cursor="Hand">
                 NUEVA MERCANCIA
 
             </Button>

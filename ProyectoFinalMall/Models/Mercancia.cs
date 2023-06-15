@@ -18,4 +18,10 @@ public partial class Mercancia
     public decimal? Precio { get; set; }
 
     public string? Descripcion { get; set; }
+
+    public string? Imagen { get; set; } = "";
+
+    public int IdCliente { get; set; }
+
+    public virtual Cliente IdClienteNavigation { get; set; } = null!;
 }

@@ -21,8 +21,8 @@
                             <RowDefinition Height=".1*"></RowDefinition>
                             <RowDefinition Height=".4*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <Image Grid.RowSpan="2" Stretch="UniformToFill" Source="https://cdn.pixabay.com/photo/2016/09/16/00/17/movie-1673024_960_720.jpg"></Image>
-                        <Image Grid.Row="1" Grid.RowSpan="2" Margin="5" ></Image>
+                        <Image Grid.RowSpan="2" Stretch="UniformToFill" Source="https://image.freepik.com/free-photo/blurred-background-store-shopping-mall-blur-background-with-bokeh-vintage-filtered-image_1253-1414.jpg"></Image>
+                        <Image Grid.Row="1" Grid.RowSpan="2" Margin="5" Source="{Binding mercancia.Imagen}"></Image>
                         <StackPanel Grid.Row="3" Margin="20">
                             <TextBlock HorizontalAlignment="Center" FontSize="40"><TextBlock Text="{Binding mercancia.Nombre}"></TextBlock> (<TextBlock Text="{Binding mercancia.Tipo}"></TextBlock>)</TextBlock>
 

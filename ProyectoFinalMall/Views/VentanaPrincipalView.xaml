@@ -14,9 +14,9 @@
 
     <Window.Resources>
         <local:LoginPrincipalView x:Key="inicio"></local:LoginPrincipalView>
-        <local:ClientesView x:Key="almacen"></local:ClientesView>
         <local:CuentaView x:Key="registro"></local:CuentaView>
         <local:LoginPrincipalView x:Key="opciones"></local:LoginPrincipalView>
+
 
     </Window.Resources>
 
@@ -24,7 +24,7 @@
         <TextBlock  DockPanel.Dock="Top" 
                     Background="LavenderBlush" 
                     Foreground="Black" 
-                    Text="Annie's Store"
+                    Text="DevSpot Shopping Center"
                     FontSize="30" 
                     FontWeight="ExtraBlack"
                     FontStyle="Oblique"

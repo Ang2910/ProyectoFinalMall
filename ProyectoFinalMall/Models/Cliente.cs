@@ -16,4 +16,6 @@ public partial class Cliente
     public int IdRol { get; set; }
 
     public virtual Privilegios IdRolNavigation { get; set; } = null!;
+
+    public virtual ICollection<Mercancia> Mercancia { get; set; } = new List<Mercancia>();
 }

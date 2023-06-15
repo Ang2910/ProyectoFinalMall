@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
 
     <StackPanel Margin="5">
-       
+        <Image HorizontalAlignment="Center" Height="100" Source="{Binding Imagen}"></Image>
         <Label HorizontalAlignment="Center" Content="{Binding Nombre}"></Label>
     </StackPanel> 
 

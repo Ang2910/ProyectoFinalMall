@@ -56,6 +56,10 @@ namespace ProyectoFinalMall.Catalogos
                 {
                     Errores.Add("Ingrese el nombre de la mercancia.");
                 }
+                if (!Uri.TryCreate(m.Imagen, UriKind.Absolute, out var uri))
+                {
+                    Errores.Add("Ingrese una URL de la imagen valida");
+                }
                 if (string.IsNullOrWhiteSpace(m.Tipo))
                 {
                     Errores.Add("Escriba el tipo de la mercancia.");
@@ -79,15 +83,15 @@ namespace ProyectoFinalMall.Catalogos
                     {
                         Errores.Add("El precio no es válido.");
                     }
-                } 
+
+                }
                 if (string.IsNullOrWhiteSpace(m.Descripcion))
                 {
                     Errores.Add("La descripcion no puede estar vacia.");
                 }
             }
-
             return Errores.Count == 0;
         }
-
     }
 }
+

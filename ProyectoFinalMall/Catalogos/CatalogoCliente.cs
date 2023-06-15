@@ -16,12 +16,14 @@ namespace ProyectoFinalMall.Catalogos
     public class CatalogoCliente 
     {
 
+
+
         TiendaropaContext context = new TiendaropaContext();
 
         public IEnumerable<Cliente> GetAllClientes()
         {
             return context.Cliente.OrderBy(x => x.Nombre);
-        }
+        }         
         public Cliente? GetIdUsuario(int id)
         {
             return context.Cliente.Find(id);
@@ -113,6 +115,10 @@ namespace ProyectoFinalMall.Catalogos
         {
             context.Cliente.Update(c);
             context.SaveChanges();
+        } 
+        public IEnumerable<Vistamercanciacliente> GetAllVistaMercanciaCliente()
+        {
+            return context.Vistamercanciacliente.ToList();
         }
         private void EstablecerTipoUsario(Cliente c)
         {

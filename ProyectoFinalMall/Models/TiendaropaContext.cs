@@ -59,12 +59,19 @@ public partial class TiendaropaContext : DbContext
 
             entity.ToTable("mercancia");
 
+            entity.HasIndex(e => e.IdCliente, "fkCliente");
+
             entity.Property(e => e.Descripcion).HasColumnType("text");
+            entity.Property(e => e.Imagen).HasColumnType("text");
             entity.Property(e => e.Marca).HasMaxLength(50);
             entity.Property(e => e.Nacionalidad).HasMaxLength(60);
             entity.Property(e => e.Nombre).HasMaxLength(90);
             entity.Property(e => e.Precio).HasPrecision(6, 1);
             entity.Property(e => e.Tipo).HasMaxLength(60);
+
+            entity.HasOne(d => d.IdClienteNavigation).WithMany(p => p.Mercancia)
+                .HasForeignKey(d => d.IdCliente)
+                .HasConstraintName("fkCliente");
         });
 
         modelBuilder.Entity<Observacion>(entity =>

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ProyectoFinalMall.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel Margin="30,30,30,9" Background="LavenderBlush">
+    <StackPanel Margin="30,30,30,9" Background="Snow">
         <Label Height="65"
          Foreground="Black"
          Background="Lavender"

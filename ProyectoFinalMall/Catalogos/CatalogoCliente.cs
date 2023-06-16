@@ -56,7 +56,7 @@ namespace ProyectoFinalMall.Catalogos
               
             return y;
         }
-
+       
         public bool Validar(Cliente? u, out List<string> Errores)
         {
             Errores = new List<string>();

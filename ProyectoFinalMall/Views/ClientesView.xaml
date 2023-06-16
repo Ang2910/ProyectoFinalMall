@@ -64,7 +64,10 @@
                 <TextBox Text="{Binding cliente.Correo}"></TextBox>
 
                 <Label>IdRol:</Label>
-                <TextBox Text="{Binding cliente.IdRol}"></TextBox>
+                <ComboBox DisplayMemberPath="Nombre" Height="30"
+                      SelectedValuePath="Id" 
+                      DockPanel.Dock="Right"
+                      Width="450" Margin="5" ItemsSource="{Binding ListaRoles}" SelectedValue="{Binding cliente.IdRol}"  ></ComboBox>
 
                 <WrapPanel HorizontalAlignment="Center" Margin="20">
                     <Button Padding="10,5" Command="{Binding GuardarClienteCommand}">Editar</Button>
@@ -88,7 +91,10 @@
                 <TextBox Text="{Binding cliente.Correo}"></TextBox>
 
                 <Label>IdRol:</Label>
-                <TextBox Text="{Binding cliente.IdRol}"></TextBox>
+                <ComboBox DisplayMemberPath="Nombre" Height="30"
+                      SelectedValuePath="Id" 
+                      DockPanel.Dock="Right"
+                      Width="450" Margin="5" ItemsSource="{Binding ListaRoles}" SelectedValue="{Binding cliente.IdRol}"  ></ComboBox>
 
                 <WrapPanel HorizontalAlignment="Center" Margin="20">
                     
@@ -289,7 +295,7 @@
                         </DataGridTemplateColumn >
                         <DataGridTextColumn Header="Nombre" Width="230"  Binding="{Binding Nombre}"  />
                         <DataGridTextColumn Header="Correo" Width="230" Binding="{Binding Correo}"/>
-                        <DataGridTextColumn Header="Rol" Width="230" Binding="{Binding IdRol}"/>
+                        <DataGridTextColumn Header="Rol" Width="230" Binding="{Binding IdRolNavigation.Nombre}"/>
 
 
 
@@ -328,8 +334,11 @@
             <Label FontWeight="Bold" FontFamily="Cambria">Contraseña:</Label>
             <TextBox Margin="5" Text="{Binding cliente.Contrasena}"></TextBox>
 
-            <Label FontWeight="Bold" FontFamily="Cambria">IdRol:</Label>
-            <TextBox Margin="5" Text="{Binding cliente.IdRol}"></TextBox>
+             <Label FontWeight="Bold" FontFamily="Cambria">IdRol:</Label>
+            <ComboBox DisplayMemberPath="Nombre" Height="30"
+                      SelectedValuePath="Id" 
+                      DockPanel.Dock="Right"
+                      Width="450" Margin="5" ItemsSource="{Binding ListaRoles}" SelectedValue="{Binding cliente.IdRol}"  ></ComboBox> 
 
             <TextBlock Margin="10"
                    Text="{Binding Error}"

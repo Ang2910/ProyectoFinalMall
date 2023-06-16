@@ -13,6 +13,7 @@ using ProyectoFinalMall.Views;
 using System.Security.Cryptography.Xml;
 using Newtonsoft.Json;
 using System.IO;
+using System.Threading;
 
 namespace ProyectoFinalMall.ViewModels
 {
@@ -127,6 +128,7 @@ namespace ProyectoFinalMall.ViewModels
                     else
                     {
                         cmercancia.Create(mercancia);
+                        var us = Thread.CurrentPrincipal.Identity;
                         ActualizarBaseDatos();
                         Vista = "Ver";
                         PropertyChange();

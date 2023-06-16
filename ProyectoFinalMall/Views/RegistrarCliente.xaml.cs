@@ -24,5 +24,7 @@ namespace ProyectoFinalMall.Views
         {
             InitializeComponent();
         }
+
+       
     }
 }

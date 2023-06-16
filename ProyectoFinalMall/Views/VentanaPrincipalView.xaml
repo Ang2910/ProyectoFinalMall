@@ -7,7 +7,7 @@
         xmlns:vm="clr-namespace:ProyectoFinalMall.ViewModels"
         mc:Ignorable="d" 
         Title="VentanaPrincipalView" Height="450" Width="800">
-
+  
     <Window.DataContext>
         <vm:PrincipalViewModel></vm:PrincipalViewModel>
     </Window.DataContext>

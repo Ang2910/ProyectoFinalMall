@@ -16,18 +16,22 @@ namespace ProyectoFinalMall.Catalogos
     public class CatalogoCliente 
     {
 
-
-
         TiendaropaContext context = new TiendaropaContext();
 
         public IEnumerable<Cliente> GetAllClientes()
         {
-            return context.Cliente.OrderBy(x => x.Nombre);
+            return context.Cliente.Include(x=> x.IdRolNavigation).OrderBy(x => x.Nombre);
         }         
         public Cliente? GetIdUsuario(int id)
         {
             return context.Cliente.Find(id);
-        } 
+        }
+        public IEnumerable<Privilegios> GetPrivilegios()
+        {
+            return context.Privilegios.OrderBy(x => x.Nombre);
+
+            //return contenedor.Menor.Where(x => x.FechaNacimiento.Month.Equals(DateTime.Now.Month)).OrderBy(x => x.Nombre);
+        }
         public void Recargar(Cliente c)
         {
             context.Entry(c).Reload();
@@ -115,10 +119,10 @@ namespace ProyectoFinalMall.Catalogos
         {
             context.Cliente.Update(c);
             context.SaveChanges();
-        } 
+        }  
         public IEnumerable<Vistamercanciacliente> GetAllVistaMercanciaCliente()
         {
-            return context.Vistamercanciacliente.ToList();
+            return context.Vistamercanciacliente.ToList();//Obtiene una lista concreta de los objetos desde el contexto.ToList convierte la secuencia de objetos en una lista concreta en memoria.
         }
         private void EstablecerTipoUsario(Cliente c)
         {

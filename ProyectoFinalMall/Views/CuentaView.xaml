@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProyectoFinalMall.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="409" d:DesignWidth="400" Background="#04c582">
+             d:DesignHeight="459" d:DesignWidth="450" Background="MediumPurple">
 
 
 
@@ -167,25 +167,28 @@
     </UserControl.Resources>
 
 
-    <Border Background="#2e3137" CornerRadius="20" Margin="20"  >
+    <Border Background="FloralWhite" CornerRadius="20" Margin="20"  >
         <StackPanel Margin="20">
-            <Label Content="Login" Foreground="White" FontSize="25" FontWeight="Bold" FontStyle="Italic"  HorizontalAlignment="Center"/>
+            <Label Content="Login" Foreground="Black" FontSize="25" FontWeight="Bold" FontStyle="Italic"  HorizontalAlignment="Center"/>
             <Separator></Separator>
-            <Label Content="Name" Foreground="White" />
-            <TextBox Style="{DynamicResource TextBoxStyle1}" Text="{Binding cliente.Nombre}" Background="Transparent" Foreground="White" FontSize="18"  />
-            <Label Content="Username" Foreground="White" />
-            <TextBox Style="{DynamicResource TextBoxStyle1}" Text="{Binding cliente.Correo}" Background="Transparent" Foreground="White" FontSize="18"  />
-            <Label Content="Password" Foreground="white" />
-            <TextBox Style="{DynamicResource TextBoxStyle1}" Text="{Binding cliente.Contrasena}" Background="Transparent" Foreground="White" FontSize="18"  />
+            <Label Content="Name" Foreground="Black" />
+            <TextBox Style="{DynamicResource TextBoxStyle1}" Text="{Binding cliente.Nombre}" Background="Transparent" Foreground="Black" FontSize="18"  />
+            <Label Content="Username" Foreground="Black" />
+            <TextBox Style="{DynamicResource TextBoxStyle1}" Text="{Binding cliente.Correo}" Background="Transparent" Foreground="Black" FontSize="18"  />
+            <Label Content="Password" Foreground="Black" />
+            <TextBox Style="{DynamicResource TextBoxStyle1}" Text="{Binding cliente.Contrasena}" Background="Transparent" Foreground="Black" FontSize="18"  />
 
-            <Label Content="Rol" Foreground="white" />
-            <TextBox Style="{DynamicResource TextBoxStyle1}" Text="{Binding cliente.IdRol}" Background="Transparent" Foreground="White" FontSize="18"  />
+            <Label Content="Rol" Foreground="Black" />
+            <ComboBox DisplayMemberPath="Nombre" Height="30"
+                      SelectedValuePath="Id" 
+                      DockPanel.Dock="Right"
+                      Width="450" Margin="5" ItemsSource="{Binding ListaRoles}" SelectedValue="{Binding cliente.IdRol}"  ></ComboBox>
 
             <TextBlock Margin="10" Text="{Binding Error}" Foreground="Red" HorizontalAlignment="Center"></TextBlock>
 
             <WrapPanel HorizontalAlignment="Center" Margin="20">
-                <Button Style="{DynamicResource ButtonStyle1}" Padding="10,5" Foreground="WhiteSmoke"  Background="#545d6a"  Command="{Binding RegistrarCuentaCommand }">Agregar</Button>
-                <Button Style="{DynamicResource ButtonStyle2}" Padding="10,5" Foreground="WhiteSmoke" Background="#545d6a"   Command="{Binding RegresarCommand }" Margin="10,0,0,0">Cancelar</Button>
+                <Button Style="{DynamicResource ButtonStyle1}"  Padding="10,5" Foreground="White"  Background="MediumPurple"  Command="{Binding RegistrarCuentaCommand }">Agregar</Button>
+                <Button Style="{DynamicResource ButtonStyle2}" Padding="10,5" Foreground="WhiteSmoke" Background="MediumPurple"   Command="{Binding RegresarCommand }" Margin="10,0,0,0">Cancelar</Button>
             </WrapPanel>
 
         </StackPanel>

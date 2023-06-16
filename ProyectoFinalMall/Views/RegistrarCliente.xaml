@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProyectoFinalMall.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="550" d:DesignWidth="860">
     <StackPanel Margin="30,30,30,9" Background="Snow">
         <Label Height="65"
          Foreground="Black"
@@ -27,8 +27,8 @@
         <Label FontWeight="Bold" FontFamily="Cambria">Contraseña:</Label>
         <TextBox Margin="5" Text="{Binding cliente.Contrasena}"></TextBox>
 
-        <Label FontWeight="Bold" FontFamily="Cambria">IdRol:</Label>
-        <TextBox Margin="5" Text="{Binding cliente.IdRol}"></TextBox>  
+        <Label FontWeight="Bold" FontFamily="Cambria">Privilegio:</Label>
+        <ComboBox Margin="5" Text="{Binding cliente.IdRolNavigation}" ></ComboBox>  
 
         <TextBlock Margin="10"
                    Text="{Binding Error}"

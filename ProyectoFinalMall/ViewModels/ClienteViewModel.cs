@@ -26,6 +26,8 @@ namespace ProyectoFinalMall.ViewModels
 
         public ObservableCollection<Vistamercanciacliente> ListaVista { get; set; } = new ObservableCollection<Vistamercanciacliente>();
 
+        public ObservableCollection<Privilegios> ListaRoles { get; set; } = new ObservableCollection<Privilegios>();
+
         public Cliente? cliente { get; set; }
 
         public string? Error { get; set; }
@@ -34,16 +36,23 @@ namespace ProyectoFinalMall.ViewModels
         public string Modo { get; set; }
 
         private string filtroNombre;
+        //Declaracion de variable 
+        //para almacenar valor del filtro al nombre de los clientes.
 
         public string FiltroNombre
+            //Propiedad que permite acceder al valor del filtro y modificarlo.
         {
-            get { return filtroNombre; } 
-            set 
+            get { return filtroNombre; }
+            //Devuelve el valor actual de la variable 
+            set
             { 
             
                 filtroNombre = value;
+                //Actualiza el valor del filtro con el nuevo valor
                 FiltrarClientes();
                 Actualizar(nameof(FiltroNombre));
+                //Pasar el nombre de la propiedad como argumento.
+                //Indica que se ha realizado un cambio en la propiedad y es necesario actualizar.
 
             }
         }
@@ -59,13 +68,12 @@ namespace ProyectoFinalMall.ViewModels
         public ICommand VerDatosCommand { get; set; }
         public ICommand VerClientesMercanciaCommand { get; set; }
   
-
         public ClienteViewModel()
         {
-            var Cliente = catalago.GetAllVistaMercanciaCliente();
-            foreach (var cliente in Cliente)
+            var Cliente = catalago.GetAllVistaMercanciaCliente();//Declaracion devariable  y  llamamos al método "GetAllVistaMercanciaCliente()" en el objeto "catalago".
+            foreach (var cliente in Cliente)//Itera sobre cada elemento en la lista "Cliente".El objeto actual se almacena en la variable "cliente".
             {
-                ListaVista.Add(cliente);
+                ListaVista.Add(cliente);//Acumular elementos de la lista "Cliente" en la lista "ListaVista".
             }
 
             AgregarClienteCommand = new RelayCommand(AgregarCliente);
@@ -88,27 +96,27 @@ namespace ProyectoFinalMall.ViewModels
         } 
         private void FiltrarClientes()
         {
-            if(string.IsNullOrEmpty(FiltroNombre))
+            if(string.IsNullOrEmpty(FiltroNombre))//Verifica si el filtro está vacío o es nulo
             {
-                ActualizarBaseDatos();
+                ActualizarBaseDatos();//Actualiza base de datos  cuando no hay un filtro aplicado.
             }
             else 
             {
 
-                ListaClientes.Clear();
+                ListaClientes.Clear();//Borra todos los elementos antes de aplicar el filtro.
 
-                foreach(var cliente in catalago.GetAllClientes()) 
+                foreach (var cliente in catalago.GetAllClientes()) //Verificar si cumplen con el filtro de nombre.
                 { 
                 
-                    if(cliente.Nombre.Contains(FiltroNombre,StringComparison.OrdinalIgnoreCase))
+                    if(cliente.Nombre.Contains(FiltroNombre,StringComparison.OrdinalIgnoreCase))//Comprueba si el nombre del cliente contiene el valor del filtro de nombre.
                     {
 
-                        ListaClientes.Add(cliente);
+                        ListaClientes.Add(cliente);//Agrega el cliente a la lista de clientes si su nombre cumple con el filtro.
 
                     }
                 
                 }
-                Actualizar();
+                Actualizar();//Notificar cambios
             }
         }
 
@@ -222,15 +230,29 @@ namespace ProyectoFinalMall.ViewModels
         public void ActualizarBaseDatos()
         {
            ListaClientes.Clear();
+           ListaRoles.Clear();
 
             foreach (var i in catalago.GetAllClientes())
             {
                 ListaClientes.Add(i);
             }
+            foreach (var item in catalago.GetPrivilegios())
+            {
+                ListaRoles.Add(item); 
+            }
             Actualizar();
 
         }
-       
+        private void ActualizarRoles()
+        {
+            ListaRoles.Clear();
+            foreach (var item in catalago.GetPrivilegios())
+            {
+                ListaRoles.Add(item);
+            }
+
+            Actualizar();
+        }
 
         void Actualizar(string? propiedad = null)
         {

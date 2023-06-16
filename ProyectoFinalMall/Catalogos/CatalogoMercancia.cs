@@ -56,7 +56,7 @@ namespace ProyectoFinalMall.Catalogos
                 {
                     Errores.Add("Ingrese el nombre de la mercancia.");
                 }
-                if (!Uri.TryCreate(m.Imagen, UriKind.Absolute, out var uri))
+                if (!Uri.TryCreate(m.Imagen, UriKind.Absolute, out var uri))//Validan si una cadena de texto m.Imagen es una URL de imagen válida utilizando el método TryCreate() de la clase Uri.
                 {
                     Errores.Add("Ingrese una URL de la imagen valida");
                 }
@@ -79,7 +79,7 @@ namespace ProyectoFinalMall.Catalogos
                 else
                 {
                     decimal precio;
-                    if (!decimal.TryParse(m.Precio.ToString(), out precio))
+                    if (!decimal.TryParse(m.Precio.ToString(), out precio))//Cnvertir una cadena de texto en formato de precio a un valor decimal. 
                     {
                         Errores.Add("El precio no es válido.");
                     }

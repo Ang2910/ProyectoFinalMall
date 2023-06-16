@@ -22,10 +22,10 @@
                                         <Setter Property="FontSize" Value="20"></Setter>
                                     </Style>
                                 </StackPanel.Resources>
-                                <TextBlock><Run FontWeight="Bold" Text="Cliente"></Run>
+                                <TextBlock><Run FontWeight="Bold" Text="Cliente:"></Run>
 <Run Text="{Binding NombreCliente}"></Run>
                                 </TextBlock>
-                                <TextBlock><Run FontWeight="Bold" Text="Mercancia"></Run>
+                                <TextBlock><Run FontWeight="Bold" Text="Mercancia:"></Run>
 <Run Text="{Binding NombreMercancia}"></Run>
                                 </TextBlock>
                             </StackPanel>

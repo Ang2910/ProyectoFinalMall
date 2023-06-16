@@ -7,14 +7,14 @@
              xmlns:vm="clr-namespace:ProyectoFinalMall.ViewModels"
              d:DataContext="{d:DesignInstance Type=vm:MercanciaViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="580" d:DesignWidth="800" Background="Gray" Margin="10">
+             d:DesignHeight="580" d:DesignWidth="800" Background="FloralWhite" Margin="10">
 
     <UserControl.Resources>
         <Style TargetType="TextBlock" x:Key="nombre">
             <Setter Property="FontFamily" Value="../Assets/#QuickSand Light"></Setter>
             <Setter Property="FontSize" Value="30"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
-            <Setter Property="Background" Value="#DC895D"></Setter>
+            <Setter Property="Background" Value="MediumPurple"></Setter>
             <Setter Property="Padding" Value="10"></Setter>
         </Style>
 
@@ -73,8 +73,8 @@
             Foreground="Red" Text="{Binding Error}"></TextBlock>
 
         <WrapPanel HorizontalAlignment="Right" Margin="-5">
-            <Button Command="{Binding GuardarMercanciaCommand}">Guardar</Button>
-            <Button Command="{Binding CancelarCommand}">Cancelar</Button>
+            <Button Command="{Binding GuardarMercanciaCommand}" Background="MediumPurple">Guardar</Button>
+            <Button Command="{Binding CancelarCommand}" Background="MediumPurple">Cancelar</Button>
         </WrapPanel>
 
     </StackPanel>
